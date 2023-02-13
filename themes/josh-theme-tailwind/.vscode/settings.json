@@ -1,0 +1,31 @@
+{
+  "files.exclude": {
+    // "package.json": true,
+    ".gitignore": true,
+    "build": true,
+    "**/*.css.map": true,
+    "**/*.js.map": true,
+    "**/*.asset.php": true,
+    "package-lock.json": true,
+    "node_modules": true,
+    // "style.css": true,
+    // "tailwind.config.js": true,
+    // "favicon.ico": true,
+    ".npmrc": true,
+    "web-comp": true, // todo: remove
+    "img": true,
+    "readme.txt": true,
+    "**/*.test.js": true,
+    "**/*.spec.js": true,
+    // "**/*.php": true
+  },
+  "liveSassCompile.settings.formats": [ // override global settings.json
+    {
+      "format": "compressed",
+      "extensionName": ".css",
+      // "savePath": "/css",
+      "savePath": "~/"
+    }
+  ],
+  "liveServer.settings.port": 4602
+}

@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* { 
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* outline: hotpink 1px solid; */
+}
+
+:root {
+  --green: #40bf57; 
+  --lightgreen: #EBFBEE;
+  --dark: hsl(131, 50%, 5%); 
+  --dark-text: #9CA3AF;
+  --lightgray: #D6D6D6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: white;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+section { margin-bottom: 100px; }
+
+
+/* ========================================= */
+
+
+/* ----------- "Sticky"-Footer ------------- */
+/* ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ */
+
+/* "Sticky" Footer: https://css-tricks.com/couple-takes-sticky-footer/#aa-there-is-flexbox */
+ /* Video description (comment used): https://youtu.be/yc2olxLgKLk */
+html {
+  height: 100%;
+  /* background: lightgreen; */
+}
+
+body {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  /* background: deepskyblue; */
+}
+
+#page-content {
+  flex-grow: 1;
+
+  /* 
+    Comment from linked video: 
+    Gábor Móczik
+    Instead of margin: auto (maybe you want specific margin-top on the footer in case of longer pages), you could use justify-self: flex-end on the footer, and flex-grow: 1 on the main content (above the footer, to fill up the space, otherwise flex-end won't work). And probably justify-items: flex-start on the body so the content will not be centered vertically, if it is short.
+  */
+}
+
+footer{
+  justify-self: flex-end;
+}
+
+/* ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ */
+/* ^^^^^^^^^^^ "Sticky"-Footer ^^^^^^^^^^^^^ */
+
+
+/* ========================================= */
+
+
+/* -------------- Scroll-Bar --------------- */
+/* ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ */
+
+body {
+  /* page content underneath scrollbar: */
+  overflow: overlay;
+  /* overflow: scroll; */
+}
+
+/* Chrome and Safari */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 2px;
+  margin-block: 0.2em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 100vw;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* Firefox */
+@supports (scrollbar-color: red blue) {
+  * {
+    /* scrollbar-color: <thumb> <track> */
+    scrollbar-color: rgba(0, 0, 0, 0.4) transparent;
+    scrollbar-width: thin;
+  }
+}
+
+/* ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ */
+/* ^^^^^^^^^^^^^^ Scroll-Bar ^^^^^^^^^^^^^^^ */
+
+
+/* ========================================= */
