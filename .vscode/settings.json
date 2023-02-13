@@ -1,0 +1,31 @@
+{
+  "files.exclude": {
+    // "package.json": true,
+    "**/package-lock.json": true,
+    ".gitignore": true,
+    "build": true,
+    "**/*.css.map": true,
+    "**/*.js.map": true,
+    "**/*.asset.php": true,
+    "package-lock.json": true,
+    "**/node_modules": true,
+
+    // "wp-content/ai1wm-backups": true,
+    "index.php": true,
+    "themes/index.php": true,
+    "plugins/index.php": true,
+    "themes/theme/style.css": true,
+    "themes/theme/.gitignore": true,
+    "themes/theme/.npmrc": true,
+    "themes/theme/package-lock.json": true,
+  },
+  "liveSassCompile.settings.formats": [ // override global settings.json
+    {
+      "format": "compressed",
+      "extensionName": ".css",
+      // "savePath": "/css",
+      "savePath": "~/"
+    }
+  ],
+  "liveServer.settings.port": 4602
+}

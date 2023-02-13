@@ -13,19 +13,10 @@
     // "favicon.ico": true,
     ".npmrc": true,
     "web-comp": true, // todo: remove
-    "img": true,
+    // "img": true,
     "readme.txt": true,
     "**/*.test.js": true,
     "**/*.spec.js": true,
     // "**/*.php": true
-  },
-  "liveSassCompile.settings.formats": [ // override global settings.json
-    {
-      "format": "compressed",
-      "extensionName": ".css",
-      // "savePath": "/css",
-      "savePath": "~/"
-    }
-  ],
-  "liveServer.settings.port": 4602
+  }
 }

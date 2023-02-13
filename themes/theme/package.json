@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "npm-run-all --parallel sync wpstart tailwindwatch",
-    "sync": "browser-sync start -p 'jadefse.local' --files '**/*.php' 'build/*.js' 'build/*.css'",
+    "sync": "browser-sync start -p 'wpwebapp.local' --files '**/*.php' 'build/*.js' 'build/*.css'",
     "buildwp": "wp-scripts build",
     "build": "npm-run-all --sequential buildwp tailwindbuild",
     "wpstart": "wp-scripts start",
