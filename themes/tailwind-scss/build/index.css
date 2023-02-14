@@ -166,5 +166,104 @@ body .react-root footer {
   display: grid;
   place-items: center;
 }
+/*!************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/-pages/page-store/filters/checkboxes-flip-layout/_.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************/
+.checkboxes-container {
+  padding: 0.5em;
+}
+.checkboxes-container .title {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.checkboxes-container .checkbox-container:not(:last-child) {
+  margin-bottom: 0.35em;
+}
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/-pages/page-store/filters/checkboxes-flip-layout/checkbox/_.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************/
+@charset "UTF-8";
+/* ========================================= */
+/* ========================================= */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.checkbox-container label {
+  cursor: pointer;
+  font-size: 1rem;
+  display: inherit;
+  align-items: inherit;
+}
+.checkbox-container label::before {
+  content: "";
+  width: 0.95em;
+  height: 0.95em;
+  border: 0.05em solid black;
+  border-radius: 0.15em;
+  margin-right: 0.5em;
+  color: black !important;
+  transition: background-color 0.1s ease;
+}
+@media (max-width: 1024px) {
+  .checkbox-container label::before {
+    background: white;
+    padding: 0.8em !important;
+    font-size: 11px;
+  }
+}
+@media (min-width: 1024px) {
+  .checkbox-container label::before {
+    background: white;
+    padding: 0.6em !important;
+    font-size: 13px;
+  }
+}
+.checkbox-container label:hover::before {
+  background: gray;
+}
+.checkbox-container input[type=checkbox] {
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+}
+.checkbox-container input[type=checkbox]:hover + label::before {
+  background: gray;
+}
+.checkbox-container input[type=checkbox]:focus + label::before {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.checkbox-container input[type=checkbox]:checked + label::before {
+  content: "✔";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[3].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[3].use[3]!./src/-pages/page-store/filters/chevron-anim/chevron-anim.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************/
+.chevron-anim {
+  overflow: hidden;
+}
+.chevron-anim__title {
+  cursor: pointer;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  perspective: 800px;
+}
+.chevron-anim__title__arrow {
+  transform: rotate3d(1, 0, 0, 0deg);
+  transform-origin: center;
+  transition: transform 0.5s ease;
+  height: 1.1rem;
+}
+.chevron-anim__title__arrow-up {
+  transform: rotate3d(1, 0, 0, 180deg);
+}
 
 /*# sourceMappingURL=index.css.map*/

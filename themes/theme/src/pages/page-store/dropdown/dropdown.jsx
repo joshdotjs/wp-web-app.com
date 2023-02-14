@@ -2,7 +2,8 @@ import React, { useState, useRef } from 'react';
 import { gsap } from 'gsap';
 import { disableClick, enableClick } from '../../../util/dom';
 
-import ChevronDownSVG from '@/comps/svg/chevron-down';
+// import ChevronDownSVG from '@/comps/svg/chevron-down';
+import ChevronDownSVG from 'comps/svg/chevron-down';
 
 // ==============================================
 

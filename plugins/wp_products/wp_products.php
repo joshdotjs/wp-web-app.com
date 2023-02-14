@@ -8,11 +8,9 @@ Author: Josh Holloway
 Author URI: https://www.joshua-holloway.com/
 */
 
-
-
 // ==============================================
 
-
+if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 // ==============================================
 
@@ -142,3 +140,120 @@ register_deactivation_hook( __FILE__, function() {
 } );
 
 // ==============================================
+
+// 1. REST endpoints: 
+
+add_action('rest_api_init', function () {
+
+  // - - - - - - - - - - - - - - - - - - - - - - 
+  
+  // [CRUD - Read] - Get all products
+  register_rest_route('josh/v1', 'products', [ // [GET]
+    'methods' => WP_REST_SERVER::READABLE,
+    'permission_callback' => '__return_true',
+    'callback' => function() { 
+
+      global $wpdb;
+      $res = ['status' => 1, 'message' => 'error'];
+    
+      $products = $wpdb->get_results(
+        "SELECT * FROM wp_products;"
+      );
+
+      $res['status'] = 2;
+      $res['message'] = 'success';
+      $res['products'] = $products;
+      return $res; 
+    },
+  ]);
+  
+  // - - - - - - - - - - - - - - - - - - - - - - 
+
+  // [CRUD - Read] Grab with filtering in POST body:
+  register_rest_route('josh/v1', 'filter-products', [ // [POST]
+    'methods' => WP_REST_SERVER::CREATABLE,
+    'permission_callback' => '__return_true',
+    'callback' => function($req) {
+
+      global $wpdb;
+      $res = ['status' => 1, 'message' => 'error'];
+      
+      // Grab data from req.body:
+      $body = $req->get_json_params();
+
+      $categories        = $body['categories'];
+      $genders           = $body['genders'];
+      
+      $sort_col          = $body['sort_col'];
+      $sort_direction    = $body['sort_direction'];
+      
+      $page_num          = $body['page_num'];
+      $products_per_page = $body['products_per_page']; 
+
+      $offset = ($page_num + 1) * $products_per_page;
+      // $offset = $page_num * $products_per_page;
+
+
+
+
+
+     function doImplode ($arr) {
+        $imploded = "'" . implode ( "', '", $arr ) . "'";
+        return  $imploded;
+      }
+
+      $conditions = [];
+      if (sizeof($categories) > 0) {
+        $imploded_categories = doImplode($categories);
+        array_push($conditions, "AND category IN ($imploded_categories)");
+      } 
+      if (sizeof($genders) > 0) {
+        $imploded_genders = doImplode($genders);
+        array_push($conditions, "AND gender IN ($imploded_genders)");
+      }
+      
+      // -Generic, multiple row results can be pulled 
+      //  from the database with get_results. 
+      // -The method returns the entire query result 
+      //  as an array. 
+      // -Each element of this array corresponds 
+      //  to one row of the query result and, 
+      //  like get_row, can be an object, 
+      //  an associative array, or a numbered array. 
+      // -If no matching rows are found, 
+      //  or if there is a database error, 
+      //  the return value will be an empty array.
+      // -If your $query string is empty, or you pass an invalid $output_type, 
+      //  NULL will be returned.
+
+      $imploded_conditions = implode(' ', $conditions);
+ 
+      $products = $wpdb->get_results($wpdb->prepare(
+        "SELECT * FROM wp_products
+          WHERE 1=1 
+          $imploded_conditions
+          ORDER BY $sort_col $sort_direction
+          LIMIT $products_per_page OFFSET $offset
+        ;"
+      )); // array|object|null Database query results.
+
+      if ( $wpdb->last_error ) {
+        $res['message'] = 'error grabbing products';
+        return $res;
+      }
+
+      $res['status']       = 2;
+      $res['message']      = 'success';
+      $res['num_products'] = sizeof($products);
+
+      // TODO:
+      $res['products']     = $products;//$arr,
+      $res['page_num']     = 1;
+      return $res;
+    },
+  ]);
+  
+  // - - - - - - - - - - - - - - - - - - - - - - 
+  // - - - - - - - - - - - - - - - - - - - - - - 
+
+});

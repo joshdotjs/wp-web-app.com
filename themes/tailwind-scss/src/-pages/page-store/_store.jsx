@@ -34,7 +34,19 @@ CustomWiggle.create("cartButtonWiggle", { wiggles: 8, type: "easeOut" });
 
 // ==============================================
 
-export default function Page({ products_SSR, num_products_SSR }) {
+// export default function Page({ products_SSR, num_products_SSR }) { // LARAVEL
+export default function Page() {
+
+  // --------------------------------------------
+
+  useEffect(() => {
+    (async () => {
+      const { products, num_products } = await getProducts({ filter, page_num, sort_type });
+      console.log('products: ', products);
+      setNumProducts(num_products);
+      setLayout((prev) => ({ ...prev, products }));
+    })();
+  }, []);
 
   // --------------------------------------------
 
@@ -173,9 +185,10 @@ export default function Page({ products_SSR, num_products_SSR }) {
 
   // STEP 1: Set up layout in state with grid items initialized
   const [layout, setLayout] = useState(() => ({
-    items: products_SSR.map(({product, variants}) => {
-      return product2layoutItem({ product, variants });
-    }),
+    // items: products_SSR.map(({product, variants}) => {
+    //   return product2layoutItem({ product, variants });
+    // }),
+    items: [],
     state: undefined
     }
   ));
@@ -385,7 +398,10 @@ export default function Page({ products_SSR, num_products_SSR }) {
 
   const getProducts = async ({ filter, page_num, sort_type, reset_page_num=true, products_per_page=PRODUCTS_PER_PAGE }) => {
     // const url = `${process.env.NEXT_PUBLIC_API_URL}/api/products`;
-    const url = `${API_URL_LARAVEL}/api/filter-products`;
+    // const url = `${API_URL_LARAVEL}/api/filter-products`;
+    //const url = '/api/filter-products'; // LARVVEL
+    const url = 'http://wpwebapp.local/wp-json/josh/v1/filter-products'; // WP
+
     const sort_col = {'Name':  'title', 'Price': 'price'}[sort_type ? sort_type.title : 'Name'];
     const body = {
       categories: set2arr(filter?.category), 
@@ -403,6 +419,7 @@ export default function Page({ products_SSR, num_products_SSR }) {
 
       const { products, num_products, page_num } = data;
       console.log('getProducts() - page_num: ', page_num);
+      console.log('data: ', data);
       if (reset_page_num) {
         setPageNum(page_num); // page_num possibly beyond the number of pages for updated filtered products => already handled on backend, just sync frontend pagination
       }
@@ -757,7 +774,8 @@ export default function Page({ products_SSR, num_products_SSR }) {
   // --------------------------------------------
 
   const [page_num, setPageNum] = useState(0); // 0 ... N-1
-  const [num_products, setNumProducts] = useState(num_products_SSR);
+  // const [num_products, setNumProducts] = useState(num_products_SSR); // LARAVEL
+  const [num_products, setNumProducts] = useState();
   
   const updatePageNum = async (new_page_num) => {
 

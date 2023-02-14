@@ -1,5 +1,8 @@
 <?php
 
+// ==============================================
+
+if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 // ==============================================
 
@@ -378,6 +381,7 @@ add_action('rest_api_init', function () {
   // [CRUD - Create] Create a product:
   register_rest_route('josh/v1', 'product', [ // [POST]
     'methods' => WP_REST_SERVER::CREATABLE,
+    'permission_callback' => '__return_true',
     'callback' => function($req){ 
 
       global $wpdb;

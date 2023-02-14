@@ -6,7 +6,8 @@ import { gsap } from 'gsap';
 import { addToCartLS } from '@/context/cart-ctx/cart-fn';
 
 // import RadioButtons from '@/comps/inputs/radio-buttons/radio-buttons-variants';
-import Button from '@/comps/button/button';
+// import Button from '@/comps/button/button';
+import Button from 'comps/button/button';
 
 // ==============================================
 

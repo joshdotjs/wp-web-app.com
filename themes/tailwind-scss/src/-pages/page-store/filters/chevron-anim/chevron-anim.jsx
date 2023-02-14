@@ -1,7 +1,8 @@
 import React, { useState, useRef, useLayoutEffect, useEffect } from 'react';
 import { gsap } from 'gsap';
 
-import ChevronDownSVG from '@/comps/svg/chevron-down';
+// import ChevronDownSVG from '@/comps/svg/chevron-down';
+import ChevronDownSVG from 'comps/svg/chevron-down';
 
 import './chevron-anim.scss';
 

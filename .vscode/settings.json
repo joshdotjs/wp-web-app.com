@@ -18,14 +18,5 @@
     "themes/theme/.gitignore": true,
     "themes/theme/.npmrc": true,
     "themes/theme/package-lock.json": true,
-  },
-  "liveSassCompile.settings.formats": [ // override global settings.json
-    {
-      "format": "compressed",
-      "extensionName": ".css",
-      // "savePath": "/css",
-      "savePath": "~/"
-    }
-  ],
-  "liveServer.settings.port": 4602
+  }
 }

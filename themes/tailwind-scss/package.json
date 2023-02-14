@@ -7,7 +7,8 @@
     "build": "wp-scripts build",
     "start": "wp-scripts start",
     "sync": "browser-sync start -p 'wpwebapp.local' --files '**/*.php' 'build/*.js' 'build/*.css'",
-    "dev": "npm-run-all --parallel sync start"
+    "dev": "npm-run-all --parallel sync start",
+    "push": "git add -A  &&  git commit -m 'update'  &&  git push"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +22,7 @@
     "tailwindcss": "^3.2.6"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.15",
     "gsap": "^3.11.4",
     "react-uuid": "^2.0.0"
   }
