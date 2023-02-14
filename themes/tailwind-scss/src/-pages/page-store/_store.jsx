@@ -44,9 +44,10 @@ export default function Page() {
       const { products, num_products } = await getProducts({ filter, page_num, sort_type });
       console.log('products: ', products);
       setNumProducts(num_products);
-      setLayout((prev) => ({ ...prev, products }));
+      setLayout((prev) => ({ ...prev, items: products }));
     })();
   }, []);
+
 
   // --------------------------------------------
 
@@ -192,6 +193,14 @@ export default function Page() {
     state: undefined
     }
   ));
+
+
+  useEffect(() => {
+    console.log('layout: ', layout);
+  }, [
+    layout
+  ]);
+
 
   // --------------------------------------------
 

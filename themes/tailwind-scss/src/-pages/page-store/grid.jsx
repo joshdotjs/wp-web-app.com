@@ -154,7 +154,7 @@ export default function Grid({
 
       <ul // items
         id="grid-items"
-        >
+      >
         
 
         {layout.items.map((item, idx) => {

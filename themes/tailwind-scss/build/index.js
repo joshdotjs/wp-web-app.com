@@ -2244,7 +2244,7 @@ function Page() {
       setNumProducts(num_products);
       setLayout(prev => ({
         ...prev,
-        products
+        items: products
       }));
     })();
   }, []);
@@ -2397,6 +2397,9 @@ function Page() {
     items: [],
     state: undefined
   }));
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+    console.log('layout: ', layout);
+  }, [layout]);
 
   // --------------------------------------------
 
