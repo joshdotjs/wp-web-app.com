@@ -14,7 +14,7 @@ module.exports = {
       '@': path.resolve(__dirname, 'src/'),
       util: path.resolve(__dirname, 'src/util/'),
       scss: path.resolve(__dirname, 'src/scss/'),
-      img: path.resolve(__dirname, 'img/'),
+      img: path.resolve(__dirname, '../../uploads/img/'),
       comps: path.resolve(__dirname, 'src/-comps/'),
       pages: path.resolve(__dirname, 'src/-pages/'),
     },

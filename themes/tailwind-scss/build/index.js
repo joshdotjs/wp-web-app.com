@@ -5129,10 +5129,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "img_map": function() { return /* binding */ img_map; }
 /* harmony export */ });
-/* harmony import */ var _uploads_img_products_shoes_men_Vaporfly_2_1_webp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../uploads/img/products/shoes/men/Vaporfly-2-1.webp */ "../../uploads/img/products/shoes/men/Vaporfly-2-1.webp");
-/* harmony import */ var _uploads_img_products_clothes_men_cargo_pants_green_webp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../uploads/img/products/clothes/men/cargo-pants-green.webp */ "../../uploads/img/products/clothes/men/cargo-pants-green.webp");
-/* harmony import */ var _uploads_img_products_accessories_men_backpack_webp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../uploads/img/products/accessories/men/backpack.webp */ "../../uploads/img/products/accessories/men/backpack.webp");
-/* harmony import */ var _uploads_img_products_clothes_men_Dri_FIT_DNA_shorts_blue_webp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../uploads/img/products/clothes/men/Dri-FIT-DNA-shorts-blue.webp */ "../../uploads/img/products/clothes/men/Dri-FIT-DNA-shorts-blue.webp");
+/* harmony import */ var img_products_shoes_men_Vaporfly_2_1_webp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! img/products/shoes/men/Vaporfly-2-1.webp */ "./img/products/shoes/men/Vaporfly-2-1.webp");
+/* harmony import */ var img_products_clothes_men_cargo_pants_green_webp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! img/products/clothes/men/cargo-pants-green.webp */ "./img/products/clothes/men/cargo-pants-green.webp");
+/* harmony import */ var img_products_accessories_men_backpack_webp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! img/products/accessories/men/backpack.webp */ "./img/products/accessories/men/backpack.webp");
+/* harmony import */ var img_products_clothes_men_Dri_FIT_DNA_shorts_blue_webp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! img/products/clothes/men/Dri-FIT-DNA-shorts-blue.webp */ "./img/products/clothes/men/Dri-FIT-DNA-shorts-blue.webp");
 
 
 
@@ -5151,74 +5151,74 @@ const img_map = {
   'men': {
     'shoes': {
       title: 'Vaporfly 2',
-      img: _uploads_img_products_shoes_men_Vaporfly_2_1_webp__WEBPACK_IMPORTED_MODULE_0__["default"]
+      img: img_products_shoes_men_Vaporfly_2_1_webp__WEBPACK_IMPORTED_MODULE_0__["default"]
     },
     'clothes': {
       title: 'Cargo Pants',
-      img: _uploads_img_products_clothes_men_cargo_pants_green_webp__WEBPACK_IMPORTED_MODULE_1__["default"]
+      img: img_products_clothes_men_cargo_pants_green_webp__WEBPACK_IMPORTED_MODULE_1__["default"]
     },
     'accessories': {
       title: 'Backpack',
-      img: _uploads_img_products_accessories_men_backpack_webp__WEBPACK_IMPORTED_MODULE_2__["default"]
+      img: img_products_accessories_men_backpack_webp__WEBPACK_IMPORTED_MODULE_2__["default"]
     },
     'equipment': {
       title: 'TODO',
-      img: _uploads_img_products_clothes_men_Dri_FIT_DNA_shorts_blue_webp__WEBPACK_IMPORTED_MODULE_3__["default"]
+      img: img_products_clothes_men_Dri_FIT_DNA_shorts_blue_webp__WEBPACK_IMPORTED_MODULE_3__["default"]
     } // workout gear,  men: balls, women: yoga-mats,  (Nike: accessories -> gear by sport)
   },
 
   'women': {
     'shoes': {
       title: 'Infinity React 3',
-      img: _uploads_img_products_shoes_men_Vaporfly_2_1_webp__WEBPACK_IMPORTED_MODULE_0__["default"]
+      img: img_products_shoes_men_Vaporfly_2_1_webp__WEBPACK_IMPORTED_MODULE_0__["default"]
     },
     'clothes': {
       title: 'Dri Fit One',
-      img: _uploads_img_products_clothes_men_cargo_pants_green_webp__WEBPACK_IMPORTED_MODULE_1__["default"]
+      img: img_products_clothes_men_cargo_pants_green_webp__WEBPACK_IMPORTED_MODULE_1__["default"]
     },
     'accessories': {
       title: 'Nike Swoosh Green',
-      img: _uploads_img_products_accessories_men_backpack_webp__WEBPACK_IMPORTED_MODULE_2__["default"]
+      img: img_products_accessories_men_backpack_webp__WEBPACK_IMPORTED_MODULE_2__["default"]
     },
     'equipment': {
       title: 'Nike Swoosh Green',
-      img: _uploads_img_products_clothes_men_Dri_FIT_DNA_shorts_blue_webp__WEBPACK_IMPORTED_MODULE_3__["default"]
+      img: img_products_clothes_men_Dri_FIT_DNA_shorts_blue_webp__WEBPACK_IMPORTED_MODULE_3__["default"]
     }
   },
   'new': {
     'shoes': {
       title: 'Infinity React 3',
-      img: _uploads_img_products_shoes_men_Vaporfly_2_1_webp__WEBPACK_IMPORTED_MODULE_0__["default"]
+      img: img_products_shoes_men_Vaporfly_2_1_webp__WEBPACK_IMPORTED_MODULE_0__["default"]
     },
     'clothes': {
       title: 'Dri Fit One',
-      img: _uploads_img_products_clothes_men_cargo_pants_green_webp__WEBPACK_IMPORTED_MODULE_1__["default"]
+      img: img_products_clothes_men_cargo_pants_green_webp__WEBPACK_IMPORTED_MODULE_1__["default"]
     },
     'accessories': {
       title: 'Nike Swoosh Green',
-      img: _uploads_img_products_accessories_men_backpack_webp__WEBPACK_IMPORTED_MODULE_2__["default"]
+      img: img_products_accessories_men_backpack_webp__WEBPACK_IMPORTED_MODULE_2__["default"]
     },
     'equipment': {
       title: 'Nike Swoosh Green',
-      img: _uploads_img_products_clothes_men_Dri_FIT_DNA_shorts_blue_webp__WEBPACK_IMPORTED_MODULE_3__["default"]
+      img: img_products_clothes_men_Dri_FIT_DNA_shorts_blue_webp__WEBPACK_IMPORTED_MODULE_3__["default"]
     }
   },
   'sale': {
     'shoes': {
       title: 'Vaporfly 2',
-      img: _uploads_img_products_shoes_men_Vaporfly_2_1_webp__WEBPACK_IMPORTED_MODULE_0__["default"]
+      img: img_products_shoes_men_Vaporfly_2_1_webp__WEBPACK_IMPORTED_MODULE_0__["default"]
     },
     'clothes': {
       title: 'Cargo Pants',
-      img: _uploads_img_products_clothes_men_cargo_pants_green_webp__WEBPACK_IMPORTED_MODULE_1__["default"]
+      img: img_products_clothes_men_cargo_pants_green_webp__WEBPACK_IMPORTED_MODULE_1__["default"]
     },
     'accessories': {
       title: 'Backpack',
-      img: _uploads_img_products_accessories_men_backpack_webp__WEBPACK_IMPORTED_MODULE_2__["default"]
+      img: img_products_accessories_men_backpack_webp__WEBPACK_IMPORTED_MODULE_2__["default"]
     },
     'equipment': {
       title: 'TODO',
-      img: _uploads_img_products_clothes_men_Dri_FIT_DNA_shorts_blue_webp__WEBPACK_IMPORTED_MODULE_3__["default"]
+      img: img_products_clothes_men_Dri_FIT_DNA_shorts_blue_webp__WEBPACK_IMPORTED_MODULE_3__["default"]
     }
   }
 };
@@ -16321,10 +16321,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "../../uploads/img/products/accessories/men/backpack.webp":
-/*!****************************************************************!*\
-  !*** ../../uploads/img/products/accessories/men/backpack.webp ***!
-  \****************************************************************/
+/***/ "./img/products/accessories/men/backpack.webp":
+/*!****************************************************!*\
+  !*** ./img/products/accessories/men/backpack.webp ***!
+  \****************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16333,10 +16333,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "../../uploads/img/products/clothes/men/Dri-FIT-DNA-shorts-blue.webp":
-/*!***************************************************************************!*\
-  !*** ../../uploads/img/products/clothes/men/Dri-FIT-DNA-shorts-blue.webp ***!
-  \***************************************************************************/
+/***/ "./img/products/clothes/men/Dri-FIT-DNA-shorts-blue.webp":
+/*!***************************************************************!*\
+  !*** ./img/products/clothes/men/Dri-FIT-DNA-shorts-blue.webp ***!
+  \***************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16345,10 +16345,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "../../uploads/img/products/clothes/men/cargo-pants-green.webp":
-/*!*********************************************************************!*\
-  !*** ../../uploads/img/products/clothes/men/cargo-pants-green.webp ***!
-  \*********************************************************************/
+/***/ "./img/products/clothes/men/cargo-pants-green.webp":
+/*!*********************************************************!*\
+  !*** ./img/products/clothes/men/cargo-pants-green.webp ***!
+  \*********************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16357,10 +16357,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "../../uploads/img/products/shoes/men/Vaporfly-2-1.webp":
-/*!**************************************************************!*\
-  !*** ../../uploads/img/products/shoes/men/Vaporfly-2-1.webp ***!
-  \**************************************************************/
+/***/ "./img/products/shoes/men/Vaporfly-2-1.webp":
+/*!**************************************************!*\
+  !*** ./img/products/shoes/men/Vaporfly-2-1.webp ***!
+  \**************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
