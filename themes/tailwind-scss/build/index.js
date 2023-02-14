@@ -3347,7 +3347,7 @@ function Card(_ref2) {
       position: 'relative'
     }
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
-    src: hovered_image
+    src: `${PHP.site_url}/wp-content/uploads${hovered_image}`
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     // btn-container
     className: " btn-container   absolute right-6 md:right-[10%] bottom-3 md:bottom-[5%] "
@@ -3459,11 +3459,15 @@ function Card(_ref2) {
       color,
       img
     } = _ref3;
+    console.log('img: ', img);
+    console.log('`${PHP.site_url}/wp-content/uploads${img}`: ', `${PHP.site_url}/wp-content/uploads${img}`);
     const key = `radio-${id}`;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
       id: key,
-      key: key,
-      src: img
+      key: key
+      // src={img} // LARAVEL
+      ,
+      src: `${PHP.site_url}/wp-content/uploads${img}` // WP
       // onMouseEnter={() => { 
       //   setHoveredImage(img);
       //   setChosenVariantId(id);

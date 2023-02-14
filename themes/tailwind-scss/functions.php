@@ -16,7 +16,7 @@ add_action('wp_enqueue_scripts', function() {
     'wp_rest_url'         => esc_url_raw(rest_url('wp/v2')),  // http://localhost:3000/wp-json/wp/v2
     
     
-    'api_url_prod'        => esc_url_raw('https://ecommerce-nodejs.herokuapp.com'),
+    'api_url_prod'        => esc_url_raw('https://node-web-app.herokuapp.com'),
     'api_url_dev'         => esc_url_raw('http://localhost:9000'),
   ));
   

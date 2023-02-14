@@ -110,7 +110,8 @@ export default function Card ({ item, addToCartAnim, idx }) {
         className="img-container"
         style={{ position: 'relative' }}
       >
-        <img src={hovered_image} />
+        {/* <img src={hovered_image} /> LARAVEL */}
+        <img src={`${PHP.site_url}/wp-content/uploads${hovered_image}`} />
 
 
         <div // btn-container
@@ -184,13 +185,17 @@ export default function Card ({ item, addToCartAnim, idx }) {
           {
             item.variants.map(({id, product_id, qty, size, color, img}) => {
 
+              console.log('img: ', img);
+              console.log('`${PHP.site_url}/wp-content/uploads${img}`: ', `${PHP.site_url}/wp-content/uploads${img}`);
+
               const key = `radio-${id}`;
 
               return (
                 <img    
                   id={key}
                   key={key} 
-                  src={img}
+                  // src={img} // LARAVEL
+                  src={`${PHP.site_url}/wp-content/uploads${img}`} // WP
                   // onMouseEnter={() => { 
                   //   setHoveredImage(img);
                   //   setChosenVariantId(id);
