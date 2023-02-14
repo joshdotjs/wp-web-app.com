@@ -6,6 +6,8 @@ import ReactDOM from "react-dom";
 import Layout from '@/comps/_layout/_layout';
 // import Page from './_store';
 
+import img from 'img/accessories-1.webp';
+
 // import './__store.scss';
 
 // ==============================================
@@ -33,12 +35,18 @@ if(main_root){
   // </Layout>
 
   ReactDOM.render(
-    <div style={{
-      marginTop: '200px',
-      background: 'red',
-    }}>Page Store</div>,
+    <Layout name="store">
+      <div style={{
+        marginTop: '200px',
+        background: 'red',
+      }}>
+        Page Store
+        {/* <img src={'https://upload.wikimedia.org/wikipedia/en/7/7d/Lenna_%28test_image%29.png'}  height="100" width="100" /> */}
+        <img src={img}  height="100" width="100" />
+      </div>
+    </Layout>
+    ,
     main_root
-    
   );
 }
 

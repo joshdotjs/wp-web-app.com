@@ -296,4 +296,4 @@ export default function NavbarFlyoutDrawer({ active_panel, setActivePanel, drawe
 
 // ==============================================
 
-export { openDrawer, closeDrawer }; // NOTE: Need to pass these in as props like: () => openDrawer();
+export { openDrawer, closeDrawer }; // NOTE: Need to pass these in as props like: () => openDrawer(); not as pointers like: openDrawer;

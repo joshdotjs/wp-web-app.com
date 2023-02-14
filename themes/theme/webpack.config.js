@@ -17,6 +17,19 @@ module.exports = {
       '@': path.resolve(__dirname, 'src/'),
       util: path.resolve(__dirname, 'src/util/'),
       // scss: path.resolve(__dirname, 'src/scss/'),
+      img: path.resolve(__dirname, 'img/'),
     },
+  },
+  module: {
+    ...defaultConfig.module,
+    rules: [
+      ...defaultConfig.module.rules,
+      {
+        test: /\.(jpg|png|webp)$/,
+        use: {
+          loader: 'url-loader',
+        },
+      },
+    ],
   },
 };
