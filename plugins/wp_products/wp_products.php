@@ -233,14 +233,26 @@ add_action('rest_api_init', function () {
       // ->take($products_per_page)
       // ->orderBy($sort_col, $sort_direction)
       // ->get();
+
+      $products_query = "SELECT * FROM wp_products
+        WHERE 1=1 
+        $imploded_conditions
+        ORDER BY $sort_col $sort_direction
+        LIMIT $products_per_page OFFSET $offset
+      ;";
+
+      $count_products_query = "SELECT COUNT(*) FROM wp_products
+        WHERE 1=1 
+        $imploded_conditions
+      ";
+
       $products = $wpdb->get_results($wpdb->prepare(
-        "SELECT * FROM wp_products
-          WHERE 1=1 
-          $imploded_conditions
-          ORDER BY $sort_col $sort_direction
-          LIMIT $products_per_page OFFSET $offset
-        ;"
+        $products_query
       )); // array|object|null Database query results.
+
+      $num_products = $wpdb->get_var($wpdb->prepare(
+        $count_products_query
+      ));
 
       // -Each row stores product data with an array storing the variants for that rows products
       $arr = [];
@@ -271,7 +283,7 @@ add_action('rest_api_init', function () {
 
       $res['status']       = 2;
       $res['message']      = 'success';
-      $res['num_products'] = sizeof($products);
+      $res['num_products'] = $num_products;
 
       // TODO:
       $res['products']     = $arr;

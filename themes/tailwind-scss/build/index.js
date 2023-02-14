@@ -5142,9 +5142,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import men_shoes from `${PHP.site_url}/wp-content/uploads${'/img/products/shoes/men/Vaporfly-2-1.webp'}`;
-console.log('img path: ', `${PHP.site_url}/wp-content/uploads${'/img/products/shoes/men/Vaporfly-2-1.webp'}`);
-
 // ==============================================
 
 const img_map = {

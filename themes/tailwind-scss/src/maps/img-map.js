@@ -8,10 +8,6 @@ import women_clothes     from 'img/products/clothes/men/cargo-pants-green.webp';
 import women_accessories from 'img/products/accessories/men/backpack.webp';
 import women_equipment   from 'img/products/clothes/men/Dri-FIT-DNA-shorts-blue.webp';
 
-
-// import men_shoes from `${PHP.site_url}/wp-content/uploads${'/img/products/shoes/men/Vaporfly-2-1.webp'}`;
-console.log('img path: ', `${PHP.site_url}/wp-content/uploads${'/img/products/shoes/men/Vaporfly-2-1.webp'}`);
-
 // ==============================================
 
 const img_map = {
