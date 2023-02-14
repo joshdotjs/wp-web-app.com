@@ -1,0 +1,76 @@
+@forward './css-vars';
+
+html {                   box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit;    }
+
+
+/* ========================================= */
+
+@mixin gutter-padding {
+  padding-left:  var(--gutter-width);
+  padding-right: var(--gutter-width);
+}
+@mixin gutter-margin {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ========================================= */
+/* ----------- "Sticky"-Footer ------------- */
+/* ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ */
+/*        https://youtu.be/yc2olxLgKLk       */
+html {            height: 100%;
+  body {          height: 100%;
+    .react-root { min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      main#page { flex-grow: 1; }       // method 2: portfolio layout uses method 1
+      footer{ justify-self: flex-end; } // method 2 (method-1: margin-top: auto)
+    }
+  }
+}
+/* ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ */
+/* ^^^^^^^^^^^ "Sticky"-Footer ^^^^^^^^^^^^^ */
+/* ========================================= */
+
+// html {  scroll-behavior: smooth;  }
+body {
+  opacity: 0;
+  margin: 0;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  
+  .react-root {
+
+    header#navbar { position: fixed; z-index: 10;
+      nav {         position: relative; z-index: 1; // on top of flyout
+        @include gutter-padding; 
+        .gutter { @include gutter-margin; } 
+      }
+      nav#top    { height: var(--navbar-top-height); }
+      nav#bottom { height: var(--navbar-bottom-height); }
+    }
+
+    main#page { @include gutter-padding; .gutter { @include gutter-margin; } 
+      // PAGE STYLES ARE INSERTED HERE
+      // PAGE STYLES ARE INSERTED HERE
+      // PAGE STYLES ARE INSERTED HERE
+      // PAGE STYLES ARE INSERTED HERE
+      // PAGE STYLES ARE INSERTED HERE
+      // PAGE STYLES ARE INSERTED HERE
+      // PAGE STYLES ARE INSERTED HERE
+      // PAGE STYLES ARE INSERTED HERE
+      margin-top: var(--header-height);
+      // background: deepskyblue;
+    }
+
+    footer {
+      height: 100px;
+      background: lightgreen;
+      display: grid;
+      place-items: center;
+    }
+
+  }
+
+}

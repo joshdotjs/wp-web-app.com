@@ -15,18 +15,20 @@ module.exports = {
       util: path.resolve(__dirname, 'src/util/'),
       scss: path.resolve(__dirname, 'src/scss/'),
       img: path.resolve(__dirname, 'img/'),
+      comps: path.resolve(__dirname, 'src/-comps/'),
+      pages: path.resolve(__dirname, 'src/-pages/'),
     },
   },
-  // module: {
-  //   ...defaultConfig.module,
-  //   rules: [
-  //     ...defaultConfig.module.rules,
-  //     {
-  //       test: /\.(jpg|png|webp)$/,
-  //       use: {
-  //         loader: 'url-loader',
-  //       },
-  //     },
-  //   ],
-  // },
+  module: {
+    ...defaultConfig.module,
+    rules: [
+      ...defaultConfig.module.rules,
+      {
+        test: /\.(jpg|png|webp)$/,
+        use: {
+          loader: 'url-loader',
+        },
+      },
+    ],
+  },
 };
