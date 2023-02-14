@@ -124,8 +124,9 @@ export default function Card ({ item, addToCartAnim, idx }) {
         >
           <Button 
             classes="mx-4"
-            disabled={!chosen_variant_id}
+            // disabled={!chosen_variant_id} // Enabled in Laravel - WP: Not sure why I wanted this to be disabled ever???
             onClick={() => {
+              
               const { product, variants } = item;
               const { id: product_id, title, body, price, category } = product;
               const variant = variants.find((variant) => variant.id === chosen_variant_id);

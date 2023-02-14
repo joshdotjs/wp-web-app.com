@@ -3352,8 +3352,9 @@ function Card(_ref2) {
     // btn-container
     className: " btn-container   absolute right-6 md:right-[10%] bottom-3 md:bottom-[5%] "
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(comps_button_button__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    classes: "mx-4",
-    disabled: !chosen_variant_id,
+    classes: "mx-4"
+    // disabled={!chosen_variant_id} // Enabled in Laravel - WP: Not sure why I wanted this to be disabled ever???
+    ,
     onClick: () => {
       const {
         product,
