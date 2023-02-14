@@ -185,9 +185,6 @@ export default function Card ({ item, addToCartAnim, idx }) {
           {
             item.variants.map(({id, product_id, qty, size, color, img}) => {
 
-              console.log('img: ', img);
-              console.log('`${PHP.site_url}/wp-content/uploads${img}`: ', `${PHP.site_url}/wp-content/uploads${img}`);
-
               const key = `radio-${id}`;
 
               return (

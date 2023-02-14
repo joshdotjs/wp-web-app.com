@@ -1,12 +1,16 @@
-import men_shoes from '/img/products/shoes/men/Vaporfly-2-1.webp';
-import men_clothes from '/img/products/clothes/men/cargo-pants-green.webp';
-import men_accessories from '/img/products/accessories/men/backpack.webp';
-import men_equipment from '/img/products/clothes/men/Dri-FIT-DNA-shorts-blue.webp';
+import men_shoes from '../../../../uploads/img/products/shoes/men/Vaporfly-2-1.webp';
+import men_clothes from '../../../../uploads/img/products/clothes/men/cargo-pants-green.webp';
+import men_accessories from '../../../../uploads/img/products/accessories/men/backpack.webp';
+import men_equipment from '../../../../uploads/img/products/clothes/men/Dri-FIT-DNA-shorts-blue.webp';
 
-import women_shoes       from '/img/products/shoes/men/Vaporfly-2-1.webp';
-import women_clothes     from '/img/products/clothes/men/cargo-pants-green.webp';
-import women_accessories from '/img/products/accessories/men/backpack.webp';
-import women_equipment   from '/img/products/clothes/men/Dri-FIT-DNA-shorts-blue.webp';
+import women_shoes       from '../../../../uploads/img/products/shoes/men/Vaporfly-2-1.webp';
+import women_clothes     from '../../../../uploads/img/products/clothes/men/cargo-pants-green.webp';
+import women_accessories from '../../../../uploads/img/products/accessories/men/backpack.webp';
+import women_equipment   from '../../../../uploads/img/products/clothes/men/Dri-FIT-DNA-shorts-blue.webp';
+
+
+// import men_shoes from `${PHP.site_url}/wp-content/uploads${'/img/products/shoes/men/Vaporfly-2-1.webp'}`;
+console.log('img path: ', `${PHP.site_url}/wp-content/uploads${'/img/products/shoes/men/Vaporfly-2-1.webp'}`);
 
 // ==============================================
 
