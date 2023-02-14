@@ -32,7 +32,6 @@ register_activation_hook(__FILE__, function () {
   // --------------------------------------------
 
   global $wpdb;
-  $tableName = "{$wpdb->prefix}products";
   $charsetCollate = $wpdb->get_charset_collate();
 
   // --------------------------------------------
@@ -42,7 +41,10 @@ register_activation_hook(__FILE__, function () {
   // ABSPATH is the path to the WP installation
   require_once(ABSPATH . "/wp-admin/includes/upgrade.php"); // -allow access to dbDelta()
 
+  // --------------------------------------------
+
   // Create products table:
+  $tableName = "{$wpdb->prefix}products";
   $sql = "CREATE TABLE {$tableName} (
     ID bigint(20) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
     title varchar(32) NULL,
@@ -59,19 +61,27 @@ register_activation_hook(__FILE__, function () {
 
   // --------------------------------------------
 
+  // Create variants table:
+  $tableName = "{$wpdb->prefix}variants";
+  $sql = "CREATE TABLE {$tableName} (
+    ID bigint(20) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    img varchar(256) NULL,
+    size varchar(32) NULL,
+    color varchar(32) NULL,
+    qty int(6) unsigned NULL,
+    product_id bigint(20) unsigned NOT NULL
+  ) ENGINE='InnoDB' {$charsetCollate};";
 
+  // execute a query for creating tables
+  dbDelta($sql); // only creates table if it does not exist
 
+  // --------------------------------------------
 
+  // load products and variants from seed file:
   require_once 'seedProducts.php';
-  // $products = array(
-  //   //'title' [0], 'slug' [1],   'category' [2],  'color' [3],  'size' [4],  'tag' [5],  'department' [6],  'stock' [7],  'price' [8],  'rating' [9],  'num_ratings' [10],  'image_id' [11],  'image_height' [12],  'image_width' [13],  'image_url' [14],                                                             'descript' [15],     'permalink_url' [16]
-  //   // -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  //   ['0', '1', '2', '3', '4', 5, 6],
-  //   ['0', '1', '2', '3', '4', 5, 6],
-  // ); // $dummies
 
-
-
+  // --------------------------------------------
+  
   // -Initialize table with dummy products 
   foreach($products as &$product) {
 
@@ -93,12 +103,40 @@ register_activation_hook(__FILE__, function () {
   }
 
   // --------------------------------------------
+  
+  // -Initialize table with dummy products 
+  foreach($variants as &$variant) {
+
+    // Create new row in table
+    $wpdb->insert(
+      "{$wpdb->prefix}variants",
+      [ //   col       val
+        'product_id'  => $variant[0],  // d
+        'qty'         => $variant[1],  // s
+        'size'        => $variant[2],  // s
+        'color'       => $variant[3],  // s
+        'img'         => $variant[4],  // s
+      ],
+      //  0    1     2     3     4  
+      [ '%d', '%s', '%s', '%s', '%s' ],
+    );
+  }
+
+  // --------------------------------------------
+
 });
 
 // 0.b: Deactivate plugin hook (TODO: Remove table drop!!!):
 register_deactivation_hook( __FILE__, function() {
   global $wpdb;
+
+  // Drop products table:
   $table_name = "{$wpdb->prefix}products";
+  $sql = "DROP TABLE IF EXISTS $table_name";
+  $wpdb->query($sql);
+
+  // Drop variants table:
+  $table_name = "{$wpdb->prefix}variants";
   $sql = "DROP TABLE IF EXISTS $table_name";
   $wpdb->query($sql);
 } );

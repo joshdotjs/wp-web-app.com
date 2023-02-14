@@ -22,29 +22,18 @@ const build = ({ products, cols }) => {
      ${products[i].product['price_compare'] * 100},
   ],`);
 
+    
+    for (let j = 0; j < products[i].variants.length; ++j) {
+      variant_rows.push(` [
+    ${i + 1},
+    ${Number(products[i].variants[j]['qty'])},
+    "${products[i].variants[j]['size']}",
+    "${products[i].variants[j]['color']}",
+    "${products[i].variants[j]['img']}",
+  ],`);
+    } // end for j
 
-
-// $dummies = array(
-//   //'title' [0], 'sub_title' [1],   'body' [2],  'category' [3],  'gender' [4],  'price' [5],  'price_compare' [6],  'created_at' [7]
-//   // -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-//   ['product a',  'product-a',  'shirts',         'red',         'lg',       'new',      'men',              10,           100,          0,             0,                   247,             438,                  640,                'http://jadefse.local/wp-content/uploads/2022/12/Slide-16_9-1-1024x576.png',  $description,         'http://jadefse.local/product-a'],
-// ); // $dummies
-
-
-
-
-  for (let j = 0; j < products[i].variants.length; ++j) {
-      variant_rows.push(`  DB::table('variants')->insert([
-    'product_id'  =>  ${i + 1},
-    'qty'         =>  ${Number(products[i].variants[j]['qty'])},
-    'size'        =>  "${products[i].variants[j]['size']}",     
-    'color'       =>  "${products[i].variants[j]['color']}",     
-    'img'         =>  "${products[i].variants[j]['img']}",     
-    'created_at'  =>  date("Y-m-d H:i:s")
-  ]);`);
-  
-    }
-  }
+  } // end for i
 
   const output = `${head_open}
 
@@ -58,7 +47,7 @@ const build = ({ products, cols }) => {
 
   // Variants:
 
-
+  $variants = array(${variant_rows.join('\r\n')});
 
   // ==============================================
 
