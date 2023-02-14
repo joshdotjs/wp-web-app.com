@@ -1,21 +1,24 @@
 {
-  "name": "brads-boilerplate-theme",
+  "name": "tailwind-scss",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "preview": "npm-run-all --parallel sync start",
-    "sync": "browser-sync start -p 'myexample.local' --files '**/*.php' 'build/*.js' 'build/*.css'",
+    "sync": "browser-sync start -p 'wpwebapp.local' --files '**/*.php' 'build/*.js' 'build/*.css'",
     "build": "wp-scripts build",
     "start": "wp-scripts start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:hot": "wp-scripts start --hot"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@wordpress/scripts": "^23.1.0",
+    "autoprefixer": "^10.4.13",
     "browser-sync": "^2.27.10",
-    "npm-run-all": "^4.1.5"
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.6"
   }
 }

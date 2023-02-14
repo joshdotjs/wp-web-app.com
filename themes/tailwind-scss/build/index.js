@@ -20,7 +20,9 @@ function ExampleReactComponent() {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "example-react-component",
     onClick: () => setClickCount(prev => prev + 1)
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, "Hello from React!"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "You have clicked on this component ", clickCount, " times."));
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", null, "Hello from React!"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "You have clicked on this component ", clickCount, " times."), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h1", {
+    class: "text-3xl font-bold underline bg-red-500"
+  }, "tailwind"));
 }
 /* harmony default export */ __webpack_exports__["default"] = (ExampleReactComponent);
 
