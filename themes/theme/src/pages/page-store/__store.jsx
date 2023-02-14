@@ -9,6 +9,8 @@ import Layout from '@/comps/_layout/_layout';
 import img from 'img/accessories-1.webp';
 
 // import './__store.scss';
+// import './josh.scss';
+// import './josh.css';
 
 // ==============================================
 
@@ -36,10 +38,7 @@ if(main_root){
 
   ReactDOM.render(
     <Layout name="store">
-      <div style={{
-        marginTop: '200px',
-        background: 'red',
-      }}>
+      <div id="josh-josh">
         Page Store
         {/* <img src={'https://upload.wikimedia.org/wikipedia/en/7/7d/Lenna_%28test_image%29.png'}  height="100" width="100" /> */}
         <img src={img}  height="100" width="100" />

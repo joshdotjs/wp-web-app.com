@@ -9569,6 +9569,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // import './__store.scss';
+// import './josh.scss';
+// import './josh.css';
 
 // ==============================================
 
@@ -9596,10 +9598,7 @@ if (main_root) {
   react_dom__WEBPACK_IMPORTED_MODULE_2___default().render((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_comps_layout_layout__WEBPACK_IMPORTED_MODULE_3__["default"], {
     name: "store"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    style: {
-      marginTop: '200px',
-      background: 'red'
-    }
+    id: "josh-josh"
   }, "Page Store", (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: img_accessories_1_webp__WEBPACK_IMPORTED_MODULE_4__["default"],
     height: "100",
@@ -22193,6 +22192,8 @@ var __webpack_exports__ = {};
   \**********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_page_store_store__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pages/page-store/__store */ "./src/pages/page-store/__store.jsx");
+// import './josh.scss';
+
 
 // import 'josh2/page-store/__store';
 })();

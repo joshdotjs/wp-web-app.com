@@ -16,7 +16,7 @@ module.exports = {
     alias: {
       '@': path.resolve(__dirname, 'src/'),
       util: path.resolve(__dirname, 'src/util/'),
-      // scss: path.resolve(__dirname, 'src/scss/'),
+      scss: path.resolve(__dirname, 'src/scss/'),
       img: path.resolve(__dirname, 'img/'),
     },
   },
@@ -30,6 +30,10 @@ module.exports = {
           loader: 'url-loader',
         },
       },
+      // {
+      //   test: /\.scss$/,
+      //   use: ["style-loader", "css-loader", "sass-loader"]
+      // },
     ],
   },
 };
