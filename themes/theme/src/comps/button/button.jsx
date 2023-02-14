@@ -1,35 +1,38 @@
+import React from "react";
+
 // ==============================================
 
-const Button = ({children, onClick, classes, variant, disabled}) => {
-
-  // let _class = 'inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2';
-  let _class = 'rounded-md border border-transparent bg-indigo-600 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2';
-
-  if (variant === 'light') {
-    _class = 'rounded-md border border-transparent bg-indigo-100 px-3 py-2 text-sm font-medium leading-4 text-indigo-700 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2';
-  }
-  if (variant === 'white') {
-    // _class = 'inline-flex items-center rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2';
-    _class = 'rounded-md border border-gray-300 bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2';
-  }
-  if (variant === 'round') {
-    _class = 'px-3.5 py-2 border border-transparent text-sm leading-4 font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500';
-  }
-
+export default function Button({ children, onClick, disabled=false, classes, width=null, translucent=false, bg_color='black', text_color='white' }) {
   return (
-    <button 
-      disabled={disabled}
-      type="button" 
-      // class="inline-flex items-center rounded border border-transparent bg-indigo-600 px-2.5 py-1.5 text-xs font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-      class={`
-        ${_class}
-        ${classes}
-        block truncate
-      `}
+    <button
+      type="button"
       onClick={onClick}
-      style={
-        disabled === true ? { opacity: 0.2 } : {}
-      }
+      // className={`
+      //   inline-flex items-center rounded-md border border-transparent bg-indigo-600 px-3 py-2 text-sm font-medium leading-4 text-white shadow-sm 
+      //   ${disabled ? 'opacity-50' : 'hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2'}
+      //   ${classes}
+      // `}
+      
+      className={`
+        ${disabled ? 'opacity-50' : ''}
+        ${classes}
+        text-sm md:text-md
+        p-2 md:p-3
+      `}
+      
+      style={{
+        background: translucent ? 'rgba(0, 0, 0, 0.85)'  : bg_color,
+        backdropFilter: translucent ? 'blur(2px)' : '',
+        WebkitBackdropFilter: translucent ? 'blur(2px)' : '',
+        border: translucent ? '1px solid rgba( 255, 255, 255, 0.1)' : '',
+
+        color: text_color,
+        // padding: '0.75rem',
+        width: '100%',
+        borderRadius: '100vmax',
+        fontWeight: '500',
+      }}
+      disabled={disabled}
     >
       {children}
     </button>
@@ -37,5 +40,3 @@ const Button = ({children, onClick, classes, variant, disabled}) => {
 };
 
 // ==============================================
-
-export default Button;

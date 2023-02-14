@@ -34,14 +34,15 @@
     "@mantine/core": "^5.9.5",
     "@mantine/dates": "^5.10.2",
     "@mantine/hooks": "^5.9.5",
-    "dayjs": "^1.11.7",
-    "date-fns": "^2.29.3",
     "@mantine/notifications": "^5.9.5",
     "@tabler/icons": "^1.117.0",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.8",
+    "date-fns": "^2.29.3",
+    "dayjs": "^1.11.7",
     "gsap": "^3.11.3",
+    "react-uuid": "^2.0.0",
     "whatwg-fetch": "^3.6.2"
   }
 }

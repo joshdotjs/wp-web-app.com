@@ -1,0 +1,85 @@
+// @use 'scss/globals' as g;
+@use 'scss/mixins' as m;
+
+.checkbox-container {  
+  // height: 50px;
+  // padding: 0.5rem 1rem;
+  // background: lightgreen;
+  display: flex;
+  align-items: center; 
+  width: fit-content;
+
+  label {
+    cursor: pointer;
+    font-size: 1rem;
+    display: inherit; // flex
+    align-items: inherit;
+    // -psuedo elements inherit width of parent.
+    // -default display on label is inline => no-width
+
+
+    &::before {
+      content: '';
+      width: 0.95em;
+      height: 0.95em;
+
+      @include m.maxbreak {
+        background: white;
+        padding: 0.8em !important;
+        font-size: 11px;
+      } 
+      @include m.minbreak { 
+        background: white;
+        padding: 0.6em !important;
+        font-size: 13px;
+      }
+
+
+      border: 0.05em solid black;
+      border-radius: 0.15em;
+      margin-right: 0.5em;
+
+
+      color: black !important;
+
+      // clip-path: polygon(
+      //   100% 0,      /* upper-left */
+      //   100% 0,     
+      //   100% 100%,  
+      //   100% 100%    /* lower-left */
+      // );
+      transition: 
+        background-color 0.1s ease
+        // clip-path 0.3s ease-in-out
+      ;
+    }
+
+    &:hover::before { background: gray; }
+  }
+
+
+  input[type='checkbox'] {
+    cursor: pointer;
+    opacity: 0; // need to leave in DOM for tab'ing, etc.
+    position: absolute;
+
+    &:hover + label::before { background: gray; }
+
+    &:focus + label::before {
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    }
+
+    &:checked + label::before { 
+      content: '\002714';
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // clip-path: polygon(
+      //   0% 0,       /* upper-left */
+      //   100% 0, 
+      //   100% 100%, 
+      //   0% 100%     /* lower-left */
+      // );
+    }
+  }
+}

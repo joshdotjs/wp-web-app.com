@@ -1,6 +1,6 @@
 // Debugging:
 const lc = (x) => { console.log('%c' + x, 'color: cyan'); };
-const lg = (x) => { console.log('%c' + x, 'color: green'); };
+const lg = (x) => { console.log('%c' + x, 'color: lightgreen'); };
 const lo = (x) => { console.log('%c' + x, 'color: darkorange'); };
 const lp = (x) => { console.log('%c' + x, 'color: hotpink'); };
 const lb = (x) => { console.log('%c' + x, 'color: deepskyblue'); };

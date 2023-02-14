@@ -1,0 +1,12 @@
+:root {
+  --text-color-primary: #111111;
+  --navbar-height: 120px;
+  --gutter-width: 5%;   // TODO: Responsive gutter width
+  --max-width: 1650px;
+
+  --navbar-top-height: 50px;
+  --navbar-bottom-height: 70px;
+  --header-height: calc(var(--navbar-top-height) + var(--navbar-bottom-height));
+
+  // TODO: Responsive font-sizes
+}
