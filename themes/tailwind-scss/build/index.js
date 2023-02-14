@@ -2115,6 +2115,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var comps_layout_layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! comps/_layout/_layout */ "./src/-comps/_layout/_layout.jsx");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./_store */ "./src/-pages/page-store/_store.jsx");
 /* harmony import */ var img_accessories_1_webp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! img/accessories-1.webp */ "./img/accessories-1.webp");
+/* harmony import */ var _store_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./__store.scss */ "./src/-pages/page-store/__store.scss");
 
 
 // import { createRoot } from 'react-dom/client';
@@ -2125,7 +2126,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import './__store.scss';
 // import './josh.scss';
 // import './josh.css';
 
@@ -16194,6 +16194,19 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************!*\
   !*** ./src/-comps/_layout/header.scss ***!
   \****************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/-pages/page-store/__store.scss":
+/*!********************************************!*\
+  !*** ./src/-pages/page-store/__store.scss ***!
+  \********************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

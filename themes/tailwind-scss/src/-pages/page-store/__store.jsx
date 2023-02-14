@@ -10,7 +10,7 @@ import Page from './_store';
 
 import img from 'img/accessories-1.webp';
 
-// import './__store.scss';
+import './__store.scss';
 // import './josh.scss';
 // import './josh.css';
 
