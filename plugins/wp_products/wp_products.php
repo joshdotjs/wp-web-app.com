@@ -191,10 +191,6 @@ add_action('rest_api_init', function () {
       $products_per_page = $body['products_per_page']; 
 
       $offset = ($page_num + 1) * $products_per_page;
-      // $offset = $page_num * $products_per_page;
-
-
-
 
 
      function doImplode ($arr) {
@@ -228,6 +224,15 @@ add_action('rest_api_init', function () {
 
       $imploded_conditions = implode(' ', $conditions);
  
+
+      // Laravel:
+      // $products = DB::table('products')
+      // ->whereIn('category', $categories)
+      // ->whereIn('gender', $genders)
+      // ->skip($page_num * $products_per_page)
+      // ->take($products_per_page)
+      // ->orderBy($sort_col, $sort_direction)
+      // ->get();
       $products = $wpdb->get_results($wpdb->prepare(
         "SELECT * FROM wp_products
           WHERE 1=1 
@@ -236,6 +241,28 @@ add_action('rest_api_init', function () {
           LIMIT $products_per_page OFFSET $offset
         ;"
       )); // array|object|null Database query results.
+
+      // -Each row stores product data with an array storing the variants for that rows products
+      $arr = [];
+      foreach($products as $product) {
+        $product_id = $product->ID;
+        
+        // Laravel:
+        //   $variants = DB::table('variants')
+        //     ->where('product_id', '=', $product_id)
+        //     ->get();
+        $variants = $wpdb->get_results($wpdb->prepare(
+          "SELECT * FROM wp_variants
+            WHERE product_id = %d
+          ;", $product_id
+        ));
+
+        array_push($arr, [
+          'product'  => $product,
+          'variants' => $variants,
+        ]);
+      };
+
 
       if ( $wpdb->last_error ) {
         $res['message'] = 'error grabbing products';
@@ -247,8 +274,8 @@ add_action('rest_api_init', function () {
       $res['num_products'] = sizeof($products);
 
       // TODO:
-      $res['products']     = $products;//$arr,
-      $res['page_num']     = 1;
+      $res['products']     = $arr;
+      $res['page_num']     = $page_num;
       return $res;
     },
   ]);
