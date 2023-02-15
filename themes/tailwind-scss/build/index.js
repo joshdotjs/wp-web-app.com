@@ -2114,7 +2114,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var comps_layout_layout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! comps/_layout/_layout */ "./src/-comps/_layout/_layout.jsx");
 /* harmony import */ var _store__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./_store */ "./src/-pages/page-store/_store.jsx");
-/* harmony import */ var img_accessories_1_webp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! img/accessories-1.webp */ "./img/accessories-1.webp");
+/* harmony import */ var img_accessories_1_webp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! img/accessories-1.webp */ "../../uploads/img/accessories-1.webp");
 /* harmony import */ var _store_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./__store.scss */ "./src/-pages/page-store/__store.scss");
 
 
@@ -5129,10 +5129,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "img_map": function() { return /* binding */ img_map; }
 /* harmony export */ });
-/* harmony import */ var img_products_shoes_men_Vaporfly_2_1_webp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! img/products/shoes/men/Vaporfly-2-1.webp */ "./img/products/shoes/men/Vaporfly-2-1.webp");
-/* harmony import */ var img_products_clothes_men_cargo_pants_green_webp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! img/products/clothes/men/cargo-pants-green.webp */ "./img/products/clothes/men/cargo-pants-green.webp");
-/* harmony import */ var img_products_accessories_men_backpack_webp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! img/products/accessories/men/backpack.webp */ "./img/products/accessories/men/backpack.webp");
-/* harmony import */ var img_products_clothes_men_Dri_FIT_DNA_shorts_blue_webp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! img/products/clothes/men/Dri-FIT-DNA-shorts-blue.webp */ "./img/products/clothes/men/Dri-FIT-DNA-shorts-blue.webp");
+/* harmony import */ var img_products_shoes_men_Vaporfly_2_1_webp__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! img/products/shoes/men/Vaporfly-2-1.webp */ "../../uploads/img/products/shoes/men/Vaporfly-2-1.webp");
+/* harmony import */ var img_products_clothes_men_cargo_pants_green_webp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! img/products/clothes/men/cargo-pants-green.webp */ "../../uploads/img/products/clothes/men/cargo-pants-green.webp");
+/* harmony import */ var img_products_accessories_men_backpack_webp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! img/products/accessories/men/backpack.webp */ "../../uploads/img/products/accessories/men/backpack.webp");
+/* harmony import */ var img_products_clothes_men_Dri_FIT_DNA_shorts_blue_webp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! img/products/clothes/men/Dri-FIT-DNA-shorts-blue.webp */ "../../uploads/img/products/clothes/men/Dri-FIT-DNA-shorts-blue.webp");
 
 
 
@@ -16306,10 +16306,10 @@ module.exports = uuid;
 
 /***/ }),
 
-/***/ "./img/accessories-1.webp":
-/*!********************************!*\
-  !*** ./img/accessories-1.webp ***!
-  \********************************/
+/***/ "../../uploads/img/accessories-1.webp":
+/*!********************************************!*\
+  !*** ../../uploads/img/accessories-1.webp ***!
+  \********************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16318,10 +16318,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./img/products/accessories/men/backpack.webp":
-/*!****************************************************!*\
-  !*** ./img/products/accessories/men/backpack.webp ***!
-  \****************************************************/
+/***/ "../../uploads/img/products/accessories/men/backpack.webp":
+/*!****************************************************************!*\
+  !*** ../../uploads/img/products/accessories/men/backpack.webp ***!
+  \****************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16330,10 +16330,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./img/products/clothes/men/Dri-FIT-DNA-shorts-blue.webp":
-/*!***************************************************************!*\
-  !*** ./img/products/clothes/men/Dri-FIT-DNA-shorts-blue.webp ***!
-  \***************************************************************/
+/***/ "../../uploads/img/products/clothes/men/Dri-FIT-DNA-shorts-blue.webp":
+/*!***************************************************************************!*\
+  !*** ../../uploads/img/products/clothes/men/Dri-FIT-DNA-shorts-blue.webp ***!
+  \***************************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16342,10 +16342,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./img/products/clothes/men/cargo-pants-green.webp":
-/*!*********************************************************!*\
-  !*** ./img/products/clothes/men/cargo-pants-green.webp ***!
-  \*********************************************************/
+/***/ "../../uploads/img/products/clothes/men/cargo-pants-green.webp":
+/*!*********************************************************************!*\
+  !*** ../../uploads/img/products/clothes/men/cargo-pants-green.webp ***!
+  \*********************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -16354,10 +16354,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./img/products/shoes/men/Vaporfly-2-1.webp":
-/*!**************************************************!*\
-  !*** ./img/products/shoes/men/Vaporfly-2-1.webp ***!
-  \**************************************************/
+/***/ "../../uploads/img/products/shoes/men/Vaporfly-2-1.webp":
+/*!**************************************************************!*\
+  !*** ../../uploads/img/products/shoes/men/Vaporfly-2-1.webp ***!
+  \**************************************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
