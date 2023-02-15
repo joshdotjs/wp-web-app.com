@@ -39,12 +39,14 @@ export default function Page() {
 
   // --------------------------------------------
 
+  const product2layoutItem = ({ product, variants }) => ({ product, variants, id: uuid(), status: "entered", location: 'grid' });
+
   useEffect(() => {
     (async () => {
       const { products, num_products } = await getProducts({ filter, page_num, sort_type });
       console.log('products: ', products);
       setNumProducts(num_products);
-      setLayout((prev) => ({ ...prev, items: products }));
+      setLayout((prev) => ({ ...prev, items: products.map((row) => product2layoutItem(row)) }));
     })();
   }, []);
 
@@ -181,8 +183,6 @@ export default function Page() {
   // --------------------------------------------
   // --------------------------------------------
   // --------------------------------------------
-
-  const product2layoutItem = ({ product, variants }) => ({ product, variants, id: uuid(), status: "entered", location: 'grid' });
 
   // STEP 1: Set up layout in state with grid items initialized
   const [layout, setLayout] = useState(() => ({

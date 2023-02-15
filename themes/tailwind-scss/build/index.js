@@ -2230,6 +2230,19 @@ gsap_CustomWiggle__WEBPACK_IMPORTED_MODULE_17__.CustomWiggle.create("cartButtonW
 function Page() {
   // --------------------------------------------
 
+  const product2layoutItem = _ref => {
+    let {
+      product,
+      variants
+    } = _ref;
+    return {
+      product,
+      variants,
+      id: react_uuid__WEBPACK_IMPORTED_MODULE_2___default()(),
+      status: "entered",
+      location: 'grid'
+    };
+  };
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
     (async () => {
       const {
@@ -2244,7 +2257,7 @@ function Page() {
       setNumProducts(num_products);
       setLayout(prev => ({
         ...prev,
-        items: products
+        items: products.map(row => product2layoutItem(row))
       }));
     })();
   }, []);
@@ -2374,20 +2387,6 @@ function Page() {
   // --------------------------------------------
   // --------------------------------------------
   // --------------------------------------------
-
-  const product2layoutItem = _ref => {
-    let {
-      product,
-      variants
-    } = _ref;
-    return {
-      product,
-      variants,
-      id: react_uuid__WEBPACK_IMPORTED_MODULE_2___default()(),
-      status: "entered",
-      location: 'grid'
-    };
-  };
 
   // STEP 1: Set up layout in state with grid items initialized
   const [layout, setLayout] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(() => ({
