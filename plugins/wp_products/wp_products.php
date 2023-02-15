@@ -44,7 +44,7 @@ register_activation_hook(__FILE__, function () {
   // Create products table:
   $tableName = "{$wpdb->prefix}products";
   $sql = "CREATE TABLE {$tableName} (
-    ID bigint(20) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id bigint(20) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
     title varchar(32) NULL,
     sub_title varchar(32) NULL,
     body varchar(1024) NULL,
@@ -62,7 +62,7 @@ register_activation_hook(__FILE__, function () {
   // Create variants table:
   $tableName = "{$wpdb->prefix}variants";
   $sql = "CREATE TABLE {$tableName} (
-    ID bigint(20) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id bigint(20) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
     img varchar(256) NULL,
     size varchar(32) NULL,
     color varchar(32) NULL,
@@ -257,7 +257,7 @@ add_action('rest_api_init', function () {
       // -Each row stores product data with an array storing the variants for that rows products
       $arr = [];
       foreach($products as $product) {
-        $product_id = $product->ID;
+        $product_id = $product->id;
         
         // Laravel:
         //   $variants = DB::table('variants')
