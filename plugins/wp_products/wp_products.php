@@ -8,11 +8,9 @@ Author: Josh Holloway
 Author URI: https://www.joshua-holloway.com/
 */
 
-
-
 // ==============================================
 
-
+if( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 // ==============================================
 
@@ -46,7 +44,7 @@ register_activation_hook(__FILE__, function () {
   // Create products table:
   $tableName = "{$wpdb->prefix}products";
   $sql = "CREATE TABLE {$tableName} (
-    ID bigint(20) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id bigint(20) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
     title varchar(32) NULL,
     sub_title varchar(32) NULL,
     body varchar(1024) NULL,
@@ -64,7 +62,7 @@ register_activation_hook(__FILE__, function () {
   // Create variants table:
   $tableName = "{$wpdb->prefix}variants";
   $sql = "CREATE TABLE {$tableName} (
-    ID bigint(20) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id bigint(20) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
     img varchar(256) NULL,
     size varchar(32) NULL,
     color varchar(32) NULL,
@@ -142,3 +140,159 @@ register_deactivation_hook( __FILE__, function() {
 } );
 
 // ==============================================
+
+// 1. REST endpoints: 
+
+add_action('rest_api_init', function () {
+
+  // - - - - - - - - - - - - - - - - - - - - - - 
+  
+  // [CRUD - Read] - Get all products
+  register_rest_route('josh/v1', 'products', [ // [GET]
+    'methods' => WP_REST_SERVER::READABLE,
+    'permission_callback' => '__return_true',
+    'callback' => function() { 
+
+      global $wpdb;
+      $res = ['status' => 1, 'message' => 'error'];
+    
+      $products = $wpdb->get_results(
+        "SELECT * FROM wp_products;"
+      );
+
+      $res['status'] = 2;
+      $res['message'] = 'success';
+      $res['products'] = $products;
+      return $res; 
+    },
+  ]);
+  
+  // - - - - - - - - - - - - - - - - - - - - - - 
+
+  // [CRUD - Read] Grab with filtering in POST body:
+  register_rest_route('josh/v1', 'filter-products', [ // [POST]
+    'methods' => WP_REST_SERVER::CREATABLE,
+    'permission_callback' => '__return_true',
+    'callback' => function($req) {
+
+      global $wpdb;
+      $res = ['status' => 1, 'message' => 'error'];
+      
+      // Grab data from req.body:
+      $body = $req->get_json_params();
+
+      $categories        = $body['categories'];
+      $genders           = $body['genders'];
+      
+      $sort_col          = $body['sort_col'];
+      $sort_direction    = $body['sort_direction'];
+      
+      $page_num          = $body['page_num'];
+      $products_per_page = $body['products_per_page']; 
+
+      $offset = ($page_num + 1) * $products_per_page;
+
+
+     function doImplode ($arr) {
+        $imploded = "'" . implode ( "', '", $arr ) . "'";
+        return  $imploded;
+      }
+
+      $conditions = [];
+      if (sizeof($categories) > 0) {
+        $imploded_categories = doImplode($categories);
+        array_push($conditions, "AND category IN ($imploded_categories)");
+      } 
+      if (sizeof($genders) > 0) {
+        $imploded_genders = doImplode($genders);
+        array_push($conditions, "AND gender IN ($imploded_genders)");
+      }
+      
+      // -Generic, multiple row results can be pulled 
+      //  from the database with get_results. 
+      // -The method returns the entire query result 
+      //  as an array. 
+      // -Each element of this array corresponds 
+      //  to one row of the query result and, 
+      //  like get_row, can be an object, 
+      //  an associative array, or a numbered array. 
+      // -If no matching rows are found, 
+      //  or if there is a database error, 
+      //  the return value will be an empty array.
+      // -If your $query string is empty, or you pass an invalid $output_type, 
+      //  NULL will be returned.
+
+      $imploded_conditions = implode(' ', $conditions);
+ 
+
+      // Laravel:
+      // $products = DB::table('products')
+      // ->whereIn('category', $categories)
+      // ->whereIn('gender', $genders)
+      // ->skip($page_num * $products_per_page)
+      // ->take($products_per_page)
+      // ->orderBy($sort_col, $sort_direction)
+      // ->get();
+
+      $products_query = "SELECT * FROM wp_products
+        WHERE 1=1 
+        $imploded_conditions
+        ORDER BY $sort_col $sort_direction
+        LIMIT $products_per_page OFFSET $offset
+      ;";
+
+      $count_products_query = "SELECT COUNT(*) FROM wp_products
+        WHERE 1=1 
+        $imploded_conditions
+      ";
+
+      $products = $wpdb->get_results($wpdb->prepare(
+        $products_query
+      )); // array|object|null Database query results.
+
+      $num_products = $wpdb->get_var($wpdb->prepare(
+        $count_products_query
+      ));
+
+      // -Each row stores product data with an array storing the variants for that rows products
+      $arr = [];
+      foreach($products as $product) {
+        $product_id = $product->id;
+        
+        // Laravel:
+        //   $variants = DB::table('variants')
+        //     ->where('product_id', '=', $product_id)
+        //     ->get();
+        $variants = $wpdb->get_results($wpdb->prepare(
+          "SELECT * FROM wp_variants
+            WHERE product_id = %d
+          ;", $product_id
+        ));
+
+        array_push($arr, [
+          'product'  => $product,
+          'variants' => $variants,
+        ]);
+      };
+
+
+      if ( $wpdb->last_error ) {
+        $res['message'] = 'error grabbing products';
+        return $res;
+      }
+
+      $res['status']       = 2;
+      $res['message']      = 'success';
+      $res['num_products'] = $num_products;
+
+      // TODO:
+      $res['products']     = $arr;
+      $res['page_num']     = $page_num;
+      return $res;
+    },
+  ]);
+  
+  // - - - - - - - - - - - - - - - - - - - - - - 
+  // - - - - - - - - - - - - - - - - - - - - - - 
+
+});

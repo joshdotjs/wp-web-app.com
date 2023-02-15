@@ -1,0 +1,127 @@
+@use 'scss/globals' as g;
+
+/* ========================================= */
+
+// $pad: 1rem;
+$pad: min(1vw, 1rem);
+
+@mixin my {
+  margin-top: $pad;
+  margin-bottom: $pad;
+}
+
+@mixin maxbreak($break: g.$desktop) {
+  @media (max-width: #{$break}) { 
+    @content;
+  }
+}
+
+@mixin minbreak($break: g.$desktop) {
+  @media (min-width: #{$break}) { 
+    @content;
+  }
+}
+
+/* ========================================= */
+
+main#page.store {
+  
+  #grid-container {
+    $grey: #E5E5E5;
+    $ml: 0.6rem;
+
+    $max-grid-width: var(--max-width);
+    $bar-height: 50px;
+    $pad-x: var(--gutter);
+    
+    display: flex;
+    // display: grid;
+    // @media (max-width: #{$desktop}) { grid-template-columns: 1fr; }
+    // @media (min-width: #{$desktop}) { grid-template-columns: 220px 1fr; }
+
+    // ==========================================
+
+    h4 {
+      font-size: 1rem;
+      &.light { color: #757575; }
+    }
+
+    // ==========================================
+
+    #grid-left  {
+      padding-top: calc(#{$bar-height} + 2 * #{$pad});
+      @include maxbreak { display: none; } // filter-mobile is handled inside component
+      @include minbreak { display: flex; } // filter-mobile is handled inside component
+    }
+    
+    // ==========================================
+    
+    #grid-right { 
+      // background: green;
+
+      #filter-button-row,
+      #pagination {
+        @include my;
+        // background: rgba(0, 255, 255, 0.5);
+      }
+
+      // ----------------------------------------
+
+      // top row is the filter buttons
+      #filter-button-row {
+        height: $bar-height;
+        // display: flex / none based on the size (two versions for different click handler)
+        justify-content: space-between;
+        align-items: center;
+        #show-filters-button { 
+          // background: lightgreen;
+          display: inline-flex;
+          cursor: pointer;
+          svg { margin-left: $ml; }
+        }
+      }
+    
+      // ----------------------------------------
+      width: 100%; // don't remove!
+      ul#grid-items {  position: relative; // z-index: 0;
+        width: 100%; // don't remove!
+        display: grid;
+        gap: $pad;
+        @media (max-width: #{g.$desktop}) { 
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(3, 1fr);
+        }
+        @media (min-width: #{g.$desktop}) { 
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+        }
+        
+        background: white;//gray;
+        grid-auto-rows: min-content;
+        //--- gridAutoFlow: 'dense',
+            
+        li.box { 
+          // position: relative; 
+          // outline: dashed hsl(33, 100%, 50%, 0.5) 2px;
+          // aspect-ratio: 1;
+      
+          // -status: 'entered'  =>  div#app-main  >  ul#grid-items  >  li.box
+          // -status: 'exiting'  =>  div#app-main  >  #navbar        >  nav#bottom  >  #cart-btn  >  #hidden-target
+          div.box-child {}
+        }
+      } // </ Grid>   #grid-items 
+      
+      // ----------------------------------------
+      
+      #pagination {
+        // outline: solid darkorchid 5px;
+      }
+
+      // ----------------------------------------
+
+    }
+
+    // ==========================================
+    
+  }
+}

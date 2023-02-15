@@ -1,0 +1,1 @@
+import './-pages/page-store/__store';

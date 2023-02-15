@@ -1,0 +1,29 @@
+{
+  "name": "tailwind-scss",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "sync": "browser-sync start -p 'wpwebapp.local' --files '**/*.php' 'build/*.js' 'build/*.css'",
+    "dev": "npm-run-all --parallel sync start",
+    "push": "git add -A  &&  git commit -m 'update'  &&  git push"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/scripts": "^23.1.0",
+    "autoprefixer": "^10.4.13",
+    "browser-sync": "^2.27.10",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.6"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.0.15",
+    "gsap": "^3.11.4",
+    "react-uuid": "^2.0.0"
+  }
+}
