@@ -197,7 +197,7 @@ add_action('rest_api_init', function () {
       $page_num          = $body['page_num'];
       $products_per_page = $body['products_per_page']; 
 
-      $offset = ($page_num + 1) * $products_per_page;
+      $offset = $page_num * $products_per_page;
 
 
      function doImplode ($arr) {
