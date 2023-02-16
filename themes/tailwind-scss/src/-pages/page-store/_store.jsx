@@ -39,12 +39,30 @@ export default function Page() {
 
   // --------------------------------------------
 
-  const product2layoutItem = ({ product, variants }) => ({ product, variants, id: uuid(), status: "entered", location: 'grid' });
+  // const product2layoutItem = ({ product, variants }) => ({ product, variants, id: uuid(), status: "entered", location: 'grid' });
+  const product2layoutItem = ({ product, variants }) => ({  // WP - convert numbers to numbers
+    product: {
+      ...product,
+      id: Number(product.id),
+      price: Number(product.price),
+      price_compare: Number(product.price_compare),
+    }, 
+    variants: variants.map((variant) =>({
+      ...variant,
+      id: Number(variant.id),
+      qty: Number(variant.qty),
+      product_id: Number(variant.product_id),
+    })), 
+    id: uuid(), 
+    status: "entered", 
+    location: 'grid' 
+  });
+
+  // --------------------------------------------
 
   useEffect(() => {
     (async () => {
       const { products, num_products } = await getProducts({ filter, page_num, sort_type });
-      console.log('products: ', products);
       setNumProducts(num_products);
       setLayout((prev) => ({ ...prev, items: products.map((row) => product2layoutItem(row)) }));
     })();
@@ -304,7 +322,7 @@ export default function Page() {
 
         let is_item_in_UI = false;
         prev_items.forEach((prev_item) => {
-          if ( prev_item.product.id === item_from_backend.product.id )
+          if ( Number(prev_item.product.id) === Number(item_from_backend.product.id) )
             is_item_in_UI = true;
         });
 
@@ -427,8 +445,7 @@ export default function Page() {
     } else {
 
       const { products, num_products, page_num } = data;
-      console.log('getProducts() - page_num: ', page_num);
-      console.log('data: ', data);
+
       if (reset_page_num) {
         setPageNum(page_num); // page_num possibly beyond the number of pages for updated filtered products => already handled on backend, just sync frontend pagination
       }
@@ -548,7 +565,7 @@ export default function Page() {
 
           let is_item_in_UI = false;
           status_updated_items.forEach((status_updated_item) => {
-            if ( status_updated_item.product.id === item_from_backend.product.id )
+            if ( Number(status_updated_item.product.id) === Number(item_from_backend.product.id) )
               is_item_in_UI = true;
           });
 
@@ -591,6 +608,8 @@ export default function Page() {
   // --------------------------------------------
 
   const applyFilter = async ({ type, option }) => {
+
+    debugger;
 
     // -type: 'category' | 'gender' | 'price'
     // -option: 'shoes' (type: 'category')
@@ -678,7 +697,7 @@ export default function Page() {
 
       let is_item_in_UI = false;
       status_updated_items.forEach((status_updated_item) => {
-        if ( status_updated_item.product.id === item_from_backend.product.id )
+        if ( Number(status_updated_item.product.id) === Number(item_from_backend.product.id) )
           is_item_in_UI = true;
       });
 
@@ -833,12 +852,12 @@ export default function Page() {
   return (
     <div id="grid-container" ref={container_ref} >
 
-
       <Drawer title="Filters" position="left" classes="w-[200px]">
         <div style={{ padding: '0 1rem', marginTop: '0.5rem'}}>
           <Filters { ...{ filter,  categories, genders, prices, applyFilter } } />
         </div>
       </Drawer>
+
       <div id="grid-left" ref={filters_container_ref}>
         <div style={{  width: '240px', marginRight: '60px' }}>
           <Filters { ...{ filter,  categories, genders, prices, applyFilter } } />

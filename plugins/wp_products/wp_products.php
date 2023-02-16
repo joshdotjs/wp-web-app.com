@@ -45,9 +45,9 @@ register_activation_hook(__FILE__, function () {
   $tableName = "{$wpdb->prefix}products";
   $sql = "CREATE TABLE {$tableName} (
     id bigint(20) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    title varchar(32) NULL,
-    sub_title varchar(32) NULL,
-    body varchar(1024) NULL,
+    title varchar(128) NULL,
+    sub_title varchar(64) NULL,
+    body varchar(2048) NULL,
     category varchar(32) NULL,
     gender varchar(32) NULL,
     price int(6) unsigned NULL,
@@ -63,7 +63,7 @@ register_activation_hook(__FILE__, function () {
   $tableName = "{$wpdb->prefix}variants";
   $sql = "CREATE TABLE {$tableName} (
     id bigint(20) unsigned NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    img varchar(256) NULL,
+    img varchar(512) NULL,
     size varchar(32) NULL,
     color varchar(32) NULL,
     qty int(6) unsigned NULL,
@@ -81,7 +81,12 @@ register_activation_hook(__FILE__, function () {
   // --------------------------------------------
   
   // -Initialize table with dummy products 
+  $count = 0;
   foreach($products as &$product) {
+
+    $x = $product;
+    $y = $products[$count];
+    $count++;
 
     // Create new row in table
     $wpdb->insert(
@@ -92,12 +97,14 @@ register_activation_hook(__FILE__, function () {
         'body'             => $product[2],  // s
         'category'         => $product[3],  // s
         'gender'           => $product[4],  // s
-        'price'            => $product[5],  // d
-        'price_compare'    => $product[6],  // d
+        'price'            => (int)$product[5],  // d
+        'price_compare'    => (int)$product[6],  // d
       ],
       //  0    1     2     3     4     5     6 
       [ '%s', '%s', '%s', '%s', '%s', '%d', '%d' ],
     );
+
+    $josh = 7;
   }
 
   // --------------------------------------------
@@ -109,14 +116,14 @@ register_activation_hook(__FILE__, function () {
     $wpdb->insert(
       "{$wpdb->prefix}variants",
       [ //   col       val
-        'product_id'  => $variant[0],  // d
-        'qty'         => $variant[1],  // s
+        'product_id'  => (int)$variant[0],  // d
+        'qty'         => (int)$variant[1],  // d
         'size'        => $variant[2],  // s
         'color'       => $variant[3],  // s
         'img'         => $variant[4],  // s
       ],
       //  0    1     2     3     4  
-      [ '%d', '%s', '%s', '%s', '%s' ],
+      [ '%d', '%d', '%s', '%s', '%s' ],
     );
   }
 

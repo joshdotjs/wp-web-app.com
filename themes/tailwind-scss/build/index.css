@@ -90,83 +90,6 @@ header#navbar nav#bottom .gutter #cart-btn #cart-count span {
   --header-height: calc(var(--navbar-top-height) + var(--navbar-bottom-height));
 }
 
-html {
-  box-sizing: border-box;
-}
-
-*, *::before, *::after {
-  box-sizing: inherit;
-}
-
-/* ========================================= */
-/* ========================================= */
-/* ----------- "Sticky"-Footer ------------- */
-/* ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ */
-/*        https://youtu.be/yc2olxLgKLk       */
-html {
-  height: 100%;
-}
-html body {
-  height: 100%;
-}
-html body .react-root {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-html body .react-root main#page {
-  flex-grow: 1;
-}
-html body .react-root footer {
-  justify-self: flex-end;
-}
-
-/* ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ */
-/* ^^^^^^^^^^^ "Sticky"-Footer ^^^^^^^^^^^^^ */
-/* ========================================= */
-body {
-  opacity: 0;
-  margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-body .react-root header#navbar {
-  position: fixed;
-  z-index: 10;
-}
-body .react-root header#navbar nav {
-  position: relative;
-  z-index: 1;
-  padding-left: var(--gutter-width);
-  padding-right: var(--gutter-width);
-}
-body .react-root header#navbar nav .gutter {
-  max-width: var(--max-width);
-  margin-left: auto;
-  margin-right: auto;
-}
-body .react-root header#navbar nav#top {
-  height: var(--navbar-top-height);
-}
-body .react-root header#navbar nav#bottom {
-  height: var(--navbar-bottom-height);
-}
-body .react-root main#page {
-  padding-left: var(--gutter-width);
-  padding-right: var(--gutter-width);
-  margin-top: var(--header-height);
-}
-body .react-root main#page .gutter {
-  max-width: var(--max-width);
-  margin-left: auto;
-  margin-right: auto;
-}
-body .react-root footer {
-  height: 100px;
-  background: lightgreen;
-  display: grid;
-  place-items: center;
-}
-
 /* ========================================= */
 /* ! tailwindcss v3.2.6 | MIT License | https://tailwindcss.com */
 /*
@@ -1035,41 +958,126 @@ video {
 .ease-in-out{
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+/* ========================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* ========================================= */
+/* ========================================= */
+/* ----------- "Sticky"-Footer ------------- */
+/* ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ ╲╱ */
+/*        https://youtu.be/yc2olxLgKLk       */
+html {
+  height: 100%;
+}
+html body {
+  height: 100%;
+}
+html body .react-root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+html body .react-root main#page {
+  flex-grow: 1;
+}
+html body .react-root footer {
+  justify-self: flex-end;
+}
+
+/* ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ ╱╲ */
+/* ^^^^^^^^^^^ "Sticky"-Footer ^^^^^^^^^^^^^ */
+/* ========================================= */
+body {
+  opacity: 0;
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+body .react-root header#navbar {
+  position: fixed;
+  z-index: 10;
+}
+body .react-root header#navbar nav {
+  position: relative;
+  z-index: 1;
+  padding-left: var(--gutter-width);
+  padding-right: var(--gutter-width);
+}
+body .react-root header#navbar nav .gutter {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+body .react-root header#navbar nav#top {
+  height: var(--navbar-top-height);
+}
+body .react-root header#navbar nav#bottom {
+  height: var(--navbar-bottom-height);
+}
+body .react-root main#page {
+  padding-left: var(--gutter-width);
+  padding-right: var(--gutter-width);
+  margin-top: var(--header-height);
+}
+body .react-root main#page .gutter {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+body .react-root footer {
+  height: 100px;
+  background: lightgreen;
+  display: grid;
+  place-items: center;
+}
+
+/* ========================================= */
+
 .hover\:bg-gray-50:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
+
 .hover\:bg-indigo-700:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(67 56 202 / var(--tw-bg-opacity));
 }
+
 .hover\:text-gray-900:hover{
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
+
 .hover\:text-indigo-500:hover{
   --tw-text-opacity: 1;
   color: rgb(99 102 241 / var(--tw-text-opacity));
 }
+
 .focus\:z-20:focus{
   z-index: 20;
 }
+
 .focus\:outline-none:focus{
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
+
 .focus\:ring-2:focus{
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
   box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
+
 .focus\:ring-indigo-500:focus{
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(99 102 241 / var(--tw-ring-opacity));
 }
+
 .focus\:ring-offset-2:focus{
   --tw-ring-offset-width: 2px;
 }
+
 @media (min-width: 640px){
   .sm\:mr-0{
     margin-right: 0px;
@@ -1097,6 +1105,7 @@ video {
     padding-right: 1.5rem;
   }
 }
+
 @media (min-width: 768px){
   .md\:bottom-\[5\%\]{
     bottom: 5%;
@@ -1130,6 +1139,7 @@ video {
     padding: 0.75rem;
   }
 }
+
 @media (min-width: 1024px){
   .lg\:mr-8{
     margin-right: 2rem;
@@ -1144,6 +1154,7 @@ video {
     display: none;
   }
 }
+
 @media (min-width: 1536px){
   .\32xl\:w-full{
     width: 100%;
@@ -1314,6 +1325,9 @@ main#page.store #grid-container #grid-right ul#grid-items {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
   }
+}
+main#page.store #grid-container #grid-right ul#grid-items li.box {
+  outline: dashed hsla(33, 100%, 50%, 0.5) 2px;
 }
 
 /*# sourceMappingURL=index.css.map*/

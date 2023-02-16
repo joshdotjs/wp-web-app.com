@@ -82,26 +82,4 @@
 
 
       ?>
-    
-    
-    <!-- NOTE: data-key attributes are used in JS as elem.dataset.key, converted to lowercase if key is uppercase! -->
-    <!-- NOTE: single quotes (') are required surrounding the value due to there being double-quotes in the stringified JSON returned from wp_json_encode() -->
-    <div 
-      id="react-header" 
-      data-site_urls='<?php echo wp_json_encode($site_URLs); ?>'
-      data-rest_urls='<?php echo wp_json_encode($rest_URLs); ?>'
-      data-active_page='<?php echo $active_page; ?>'
-      data-is_logged_in='<?php echo $is_logged_in; ?>'
-      data-current_user='<?php echo wp_json_encode($current_user); ?>'
-    >
-    </div>
-    <div id="react-portal-cart"></div>
-    <div id="react-portal-navdrawer"></div>
-    <div id="react-portal-modal"></div>
-
-
-    <div id="react-portal-navbar"></div>
-    <div id="react-portal-mobile-filters"></div>
-
-
-    <div id="page-content">
+  

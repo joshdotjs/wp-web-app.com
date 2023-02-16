@@ -1,8 +1,14 @@
 @forward './css-vars';
 
-html {                   box-sizing: border-box; }
-*, *::before, *::after { box-sizing: inherit;    }
+/* ========================================= */
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================= */
+
+*, *::before, *::after { box-sizing: border-box; }
 
 /* ========================================= */
 
@@ -77,6 +83,3 @@ body {
 
 /* ========================================= */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
